@@ -249,6 +249,432 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/TCP-HTTP-HTTPS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tukjax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tukjax">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/TCP-HTTP-HTTPS/" itemprop="url">TCP_HTTP_HTTPS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T13:56:14+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂技/" itemprop="url" rel="index">
+                    <span itemprop="name">杂技</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>TCP是传输层的协议<br>OSI参考模型 OSI是ISO制定的 刚好是ISO倒着来的（想到了IEEE 754）<br>应用层<br>表示层<br>会话层<br>传输层<br>网络层<br>数据链路层<br>物理层<br><a href="https://images2015.cnblogs.com/blog/750327/201608/750327-20160822164857776-669486844.gif" target="_blank" rel="noopener">七层模型</a><br>OSI是理论上的模型，TCP/IP是实际上的网络协议<br>TCP/IP四层模型<br>应用层<br>传输层<br>网络层<br>数据链路层<br>IP按照这个划分，属于网络层,TCP属于传输层<br>搬运一下百度百科</p>
+<blockquote>
+<p>当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，TCP则把数据流分割成适当长度的报文段，最大传输段大小（MSS）通常受该计算机连接的网络的数据链路层的最大传送单元（MTU）限制。之后TCP把数据包传给IP层，由它来通过网络将包传送给接收端实体的TCP层。</p>
+</blockquote>
+<blockquote>
+<p>TCP为了保证报文传输的可靠，就给每个包一个序号，同时序号也保证了传送到接收端实体的包的按序接收。然后接收端实体对已成功收到的字节发回一个相应的确认(ACK)；如果发送端实体在合理的往返时延(RTT)内未收到确认，那么对应的数据（假设丢失了）将会被重传。</p>
+</blockquote>
+<blockquote>
+<p>在数据正确性与合法性上，TCP用一个校验和函数来检验数据是否有错误，在发送和接收时都要计算校验和；同时可以使用md5认证对数据进行加密。<br>在保证可靠性上，采用超时重传和捎带确认机制。<br>在流量控制上，采用滑动窗口协议，协议中规定，对于窗口内未经确认的分组需要重传。<br>在拥塞控制上，采用广受好评的TCP拥塞控制算法（也称AIMD算法）。<br>TCP的首部格式图右图所示：<a href="https://baike.baidu.com/pic/TCP/33012/0/574e9258d109b3de49101ee8cebf6c81810a4c87?fr=lemma&amp;ct=single#aid=0&amp;pic=574e9258d109b3de49101ee8cebf6c81810a4c87" target="_blank" rel="noopener">tcp首部</a><br>—Source Port是源端口，16位。<br>TCP首部<br>TCP首部<br>—Destination Port是目的端口，16位。<br>—Sequence Number是发送数据包中的第一个字节的序列号，32位。<br>—Acknowledgment Number是确认序列号，32位。<br>—Data Offset是数据偏移，4位，该字段的值是TCP首部（包括选项）长度除以4。 [1]<br>—标志位： 6位，URG表示Urgent Pointer字段有意义：<br>ACK表示Acknowledgment Number字段有意义<br>PSH表示Push功能，RST表示复位TCP连接<br>SYN表示SYN报文（在建立TCP连接的时候使用）<br>FIN表示没有数据需要发送了（在关闭TCP连接的时候使用）<br>Window表示接收缓冲区的空闲空间，16位，用来告诉TCP连接对端自己能够接收的最大数据长度。<br>—Checksum是校验和，16位。<br>—Urgent Pointers是紧急指针，16位，只有URG标志位被设置时该字段才有意义，表示紧急数据相对序列号（Sequence Number字段的值）的偏移。</p>
+</blockquote>
+<p>百度百科已经讲解的很清楚了<br>TCP三次握手</p>
+<blockquote>
+<p><a href="https://baike.baidu.com/pic/TCP/33012/0/bf4875638e06d1590c33faf9?fr=lemma&amp;ct=single#aid=0&amp;pic=a1ad16fa330e9cae59ee90ca" target="_blank" rel="noopener">三次握手</a></p>
+<ol>
+<li>客户端发送SYN（SEQ=x）报文给服务器端，进入SYN_SEND状态。</li>
+<li>服务器端收到SYN报文，回应一个SYN （SEQ=y）ACK(ACK=x+1）报文，进入SYN_RECV状态。</li>
+<li>客户端收到服务器端的SYN报文，回应一个ACK(ACK=y+1）报文，进入Established状态。</li>
+</ol>
+</blockquote>
+<p>连接中止需要四次握手</p>
+<blockquote>
+<p>[tcp连接终止]（<a href="https://baike.baidu.com/pic/TCP/33012/0/bf4875638e06d1590c33faf9?fr=lemma&amp;ct=single#aid=0&amp;pic=bf4875638e06d1590c33faf9）" target="_blank" rel="noopener">https://baike.baidu.com/pic/TCP/33012/0/bf4875638e06d1590c33faf9?fr=lemma&amp;ct=single#aid=0&amp;pic=bf4875638e06d1590c33faf9）</a><br>(1) 某个应用进程首先调用close，称该端执行“主动关闭”（active close）。该端的TCP于是发送一个FIN分节，表示数据发送完毕。<br>(2) 接收到这个FIN的对端执行 “被动关闭”（passive close），这个FIN由TCP确认。<br>注意：FIN的接收也作为一个文件结束符（end-of-file）传递给接收端应用进程，放在已排队等候该应用进程接收的任何其他数据之后，因为，FIN的接收意味着接收端应用进程在相应连接上再无额外数据可接收。<br>(3) 一段时间后，接收到这个文件结束符的应用进程将调用close关闭它的套接字。这导致它的TCP也发送一个FIN。<br>(4) 接收这个最终FIN的原发送端TCP（即执行主动关闭的那一端）确认这个FIN。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/python的selenium/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tukjax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tukjax">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/python的selenium/" itemprop="url">python的selenium</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T13:56:02+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂技/" itemprop="url" rel="index">
+                    <span itemprop="name">杂技</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近想用PYTHON批量下点图片，打开了尘封许久的PyCharm，因为之前系统崩了，又配置了好久环境。配置到一半的时候才发现可以直接用IDE无脑操作，JetBrain得我心.<br>因为要爬的图是JS动态加载的，直接打开网页爬不到，找了找办法，可以用python的selenium库模拟用户操作来爬。百度告诉我这一般是用来搞自动化测试的，先标记着。<br>百度搜图一次加载只能显示30张图片，模拟了下拉后刷新出新的图再爬下来。<br>当然用脚趾甲想都知道这是一个效率很低且有更好替代方法的方法。</p>
+<p>最后成功了，爬到了想要的图。<br>写的时候又想再看看TCP和HTTP了，当初学网络的时候倒是挺熟悉的，这一两年过去了，啥都忘了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/linux软连接与硬链接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tukjax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tukjax">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/linux软连接与硬链接/" itemprop="url">linux软连接与硬链接</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T13:54:55+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/hexo相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -574,7 +1000,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -596,7 +1022,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
