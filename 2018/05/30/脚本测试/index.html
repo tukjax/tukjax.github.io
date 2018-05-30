@@ -79,13 +79,14 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tukjax">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="脚本测试">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/脚本测试/index.html">
 <meta property="og:site_name" content="Tukjax">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-30T02:15:12.048Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tukjax">
+<meta name="twitter:title" content="脚本测试">
 
 
 
@@ -115,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/脚本测试/"/>
 
 
 
 
 
-  <title>Tukjax</title>
+  <title>脚本测试 | Tukjax</title>
   
 
 
@@ -140,8 +141,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +234,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/30/脚本测试/" itemprop="url">脚本测试</a></h1>
+          <h1 class="post-title" itemprop="name headline">脚本测试</h1>
         
 
         <div class="post-meta">
@@ -319,10 +317,6 @@
 
       
         
-          
-            
-          
-        
       
     </div>
     
@@ -339,160 +333,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/hexo相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tukjax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tukjax">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/hexo相关/" itemprop="url">hexo相关</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T21:59:02+08:00">
-                2018-05-29
-              </time>
+              <a href="/2018/05/29/hexo相关/" rel="next" title="hexo相关">
+                <i class="fa fa-chevron-left"></i> hexo相关
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂技/" itemprop="url" rel="index">
-                    <span itemprop="name">杂技</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <ol>
-<li>GIT自带的命令生成SSH key ssh-keygen 默认是RSA算法，在GIT上添加上公钥</li>
-<li>创建 用户名.github.io的repository</li>
-<li>因为在国内，先把NPM改成了TAOBAO提供的镜像，然后才用NPM安装了HEXO，当然NODEJS之前已经装好了 </li>
-<li>hexo安装 npm install安装所需组件（这步也许不是必须的？好像没有LOG）hexo init  hexo s –debug 本地端口4000 在config.yml里设置远程仓库的地址，到这里基本就算完了</li>
-</ol>
-<p>目前我更新文章hexo new “”    hexo generate  hexo deploy  这很繁琐，这两天我写个脚本简化一下这个过程，现在我累了<br>我现在用的NEXT主题是CLONE下来放到HEXO的THEMES下就可以用了，当然之前要改HEXO根目录config.yml里的THEME<br>其余就是主题美化的部分了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -502,153 +364,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tukjax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tukjax">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/hello-world/" itemprop="url">在GITHUB写博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T17:06:09+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/日常/" itemprop="url" rel="index">
-                    <span itemprop="name">日常</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="在哪里写博客"><a href="#在哪里写博客" class="headerlink" title="在哪里写博客"></a>在哪里写博客</h3><p>第一阶段在CSDN上写。后来对其界面与各种开源软件的付分下载有了意见，转移阵地。<br>第二阶段用手机的记事本写。手机坏了，有云备份，但写的实在太散了，提不起兴趣来再整理一遍。<br>第三阶段买了个VPS，装上WORDPRESS，在自己的小站写。其实已经很令人满意了，但是我的密钥丢了。<br>第四阶段，在简书上写，支持MD，界面也简约清新。可我无法忍受首页推送的文章，还是决定放弃了。<br>第五阶段，就是现在了。</p>
-<p>免费，访问速度足够快，自由定制界面，简直令人无法拒绝</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -656,6 +376,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -877,6 +601,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
