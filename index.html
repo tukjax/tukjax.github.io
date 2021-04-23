@@ -249,6 +249,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/23/toml-style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tukjax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tukjax">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/23/toml-style/" itemprop="url">toml</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-23T23:12:23+08:00">
+                2021-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>是Tom’s Obvious, Minimal Language的缩写<br>设计目的<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TOML is designed to map unambiguously to a hash table. TOML should <span class="keyword">be</span> easy to parse into data structures <span class="keyword">in</span> a wide variety of languages.</span><br></pre></td></tr></table></figure></p>
+<p>toml的作者表示,toml是被设计出来作为配置文件的。</p>
+<h3 id="与其它常用格式的对比"><a href="#与其它常用格式的对比" class="headerlink" title="与其它常用格式的对比"></a>与其它常用格式的对比</h3><table>
+<thead>
+<tr>
+<th>feature\format</th>
+<th>toml</th>
+<th>json</th>
+<th>YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>允许注释</td>
+<td>是</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>可读性</td>
+<td>非常高</td>
+<td>高</td>
+<td>高</td>
+</tr>
+<tr>
+<td>解析难度</td>
+<td>低，直接映射到哈希表</td>
+<td>中等</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<p>但是toml不支持一些特殊格式的表达，例如顶层的数组或浮点数(比如，你可以写 a=[3,4]，但不能写[3,4] ,因为toml顶层一定是哈希表结构，必须有一个key。</p>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>不需缩进，但允许缩进</p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># there is</span><br></pre></td></tr></table></figure>
+<h4 id="K-V"><a href="#K-V" class="headerlink" title="K-V"></a>K-V</h4><h5 id="字符串-amp-多行字符串"><a href="#字符串-amp-多行字符串" class="headerlink" title="字符串 &amp; 多行字符串"></a>字符串 &amp; 多行字符串</h5><figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title</span> = <span class="string">"TOML Example"</span></span><br><span class="line"><span class="attr">title2</span> = <span class="string">'''</span></span><br><span class="line"><span class="string">TOML Example</span></span><br><span class="line"><span class="string">dasd</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<h5 id="简单字符串-不用转义"><a href="#简单字符串-不用转义" class="headerlink" title="简单字符串(不用转义)"></a>简单字符串(不用转义)</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">title</span> = <span class="string">'hey,i dont need parse,lol \emoji:laugh '</span></span><br><span class="line">'''</span><br></pre></td></tr></table></figure>
+<h5 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h5><p>a = 1<br>b = -2.1<br>c = true</p>
+<h4 id="对象映射"><a href="#对象映射" class="headerlink" title="对象映射"></a>对象映射</h4><figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[owner]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">"Tom Preston-Werner"</span></span><br><span class="line"><span class="attr">dob</span> = <span class="number">1979</span>-<span class="number">05</span>-<span class="number">27</span>T07:<span class="number">32</span>:<span class="number">00</span>-<span class="number">08</span>:<span class="number">00</span> # First class dates</span><br></pre></td></tr></table></figure>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">hosts</span> = [</span><br><span class="line">  "alpha",</span><br><span class="line">  "omega"</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/21/Rust1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1529,158 +1688,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/hexo相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tukjax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tukjax">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/29/hexo相关/" itemprop="url">hexo相关</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-29T21:59:02+08:00">
-                2018-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂技/" itemprop="url" rel="index">
-                    <span itemprop="name">杂技</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>GIT自带的命令生成SSH key ssh-keygen 默认是RSA算法，在GIT上添加上公钥</li>
-<li>创建 用户名.github.io的repository</li>
-<li>因为在国内，先把NPM改成了TAOBAO提供的镜像，然后才用NPM安装了HEXO，当然NODEJS之前已经装好了 </li>
-<li>hexo安装 npm install安装所需组件（这步也许不是必须的？好像没有LOG）hexo init  hexo s –debug 本地端口4000 在config.yml里设置远程仓库的地址，到这里基本就算完了</li>
-</ol>
-<p>目前我更新文章hexo new “”    hexo generate  hexo deploy  这很繁琐，这两天我写个脚本简化一下这个过程，现在我累了<br>我现在用的NEXT主题是CLONE下来放到HEXO的THEMES下就可以用了，当然之前要改HEXO根目录config.yml里的THEME<br>其余就是主题美化的部分了</p>
-<h3 id="update"><a href="#update" class="headerlink" title="update:"></a>update:</h3><p>写了个脚本，WINDOWS下的，要用GIT。 shell脚本设置了计划任务，每天中午十二点更新一次<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd I:\\GitHub\\hexo</span><br><span class="line"></span><br><span class="line">echo &quot;------------------------hexo generate…………………………………………&quot;</span><br><span class="line">hexo generate</span><br><span class="line">echo &quot;------------------------hexo deploy…………………………………………&quot;</span><br><span class="line">hexo deploy</span><br><span class="line">echo &quot;上传完毕！&quot;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1724,7 +1738,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1746,7 +1760,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
