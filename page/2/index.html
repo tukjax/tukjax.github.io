@@ -249,6 +249,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/linux软连接与硬链接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tukjax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tukjax">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/linux软连接与硬链接/" itemprop="url">linux软链接与硬链接</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T13:54:55+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂技/" itemprop="url" rel="index">
+                    <span itemprop="name">杂技</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>刚才用了用WIN10的BASH，挺好用的<br>顺便再把LINUX的硬链接与软链接复习一下</p>
+<h3 id="硬链接-hardlink"><a href="#硬链接-hardlink" class="headerlink" title="硬链接 hardlink"></a>硬链接 hardlink</h3><p>ln source  target<br>其实就是inode号相同，文件名不同，只能对存在的文件创建硬链接<br>不能对文件夹创建硬链接，linux的目录都隐藏了两个目录，一个是. 一个是.. 这两个都是硬链接 一个point to父目录inode 一个point to 当前目录inode<br>任何一个目录的inode中的硬链接总数 总等于2 + 子目录总数 2是父目录对其的硬链接和当前目录的.的硬链接</p>
+<p>我对inode中的links总数理解就是，它相当于树中的结点连接的边数，当他等于零的时候就表示这个东西已经找不到了，可以删了<br>当INODE等于0的时候，表明这个文件的INODE，没有东西指向它，它也不指向别的地方，就可以原地去世了。<br>我在LINUX上做了个实验<br>touch 1.test<br>touch 2.test</p>
+<p>ln 1.test  3</p>
+<p>stat 3<br>stat 1.test<br>stat 2.test</p>
+<p>结果如我想的一样，1.test的inode硬链接数有 1.test和3 结果为2<br>2.test  硬链接数为 1<br>3和1.test是一样的 指向同一个inode</p>
+<p>假设可以给目录文件创建硬链接,A文件夹下有B文件夹，B文件夹下有C文件，而C文件是A的硬链接，这就导致LINUX遍历目录的时候循环了<br>LINUX文件系统是树，树不能有循环引用<br>are those real reason?我觉得不是，这一点留给以后的自己填。</p>
+<h2 id="软连接-softlink"><a href="#软连接-softlink" class="headerlink" title="软连接 softlink"></a>软连接 softlink</h2><p>ln -s source  target<br>就是WIN的快捷方式。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/29/hexo相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -435,7 +584,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -457,7 +606,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

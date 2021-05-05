@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="网络," />
+  <meta name="keywords" content="打工," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="TCP是传输层的协议OSI参考模型 OSI是ISO制定的 刚好是ISO倒着来的（想到了IEEE 754）应用层表示层会话层传输层网络层数据链路层物理层七层模型OSI是理论上的模型，TCP/IP是实际上在用的TCP/IP四层模型应用层传输层网络层数据链路层IP按照这个划分，属于网络层,TCP属于传输层搬运一下百度百科  当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，TCP则把数据流分">
-<meta name="keywords" content="网络">
+<meta name="description" content="简述每个领域都有一套行事哲学，也被叫做套路，在软件领域，这个词有另外一个说法，叫做设计模式 套路是在大量实践中被印证出的，有效且普适的行事模板。 也工作了一段时间了，耳濡目染加上平日的思考，多少也会总结出一些套路，于是决定分享出来，互相印证启发。 越晚发现问题，越难补救这里不对标题的正确性作争辩或讨论，谨作为无需辩驳的”真理”。 代码编写层面上坏的示范1234static void bad(Ser">
+<meta name="keywords" content="打工">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TCP_HTTP_HTTPS">
-<meta property="og:url" content="http://yoursite.com/2018/05/30/TCP-HTTP-HTTPS/index.html">
+<meta property="og:title" content="打工套路--提前暴露问题">
+<meta property="og:url" content="http://yoursite.com/2021/05/05/minidesign-1/index.html">
 <meta property="og:site_name" content="Tukjax">
-<meta property="og:description" content="TCP是传输层的协议OSI参考模型 OSI是ISO制定的 刚好是ISO倒着来的（想到了IEEE 754）应用层表示层会话层传输层网络层数据链路层物理层七层模型OSI是理论上的模型，TCP/IP是实际上在用的TCP/IP四层模型应用层传输层网络层数据链路层IP按照这个划分，属于网络层,TCP属于传输层搬运一下百度百科  当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，TCP则把数据流分">
+<meta property="og:description" content="简述每个领域都有一套行事哲学，也被叫做套路，在软件领域，这个词有另外一个说法，叫做设计模式 套路是在大量实践中被印证出的，有效且普适的行事模板。 也工作了一段时间了，耳濡目染加上平日的思考，多少也会总结出一些套路，于是决定分享出来，互相印证启发。 越晚发现问题，越难补救这里不对标题的正确性作争辩或讨论，谨作为无需辩驳的”真理”。 代码编写层面上坏的示范1234static void bad(Ser">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-31T05:30:24.979Z">
+<meta property="og:updated_time" content="2021-05-05T15:19:02.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TCP_HTTP_HTTPS">
-<meta name="twitter:description" content="TCP是传输层的协议OSI参考模型 OSI是ISO制定的 刚好是ISO倒着来的（想到了IEEE 754）应用层表示层会话层传输层网络层数据链路层物理层七层模型OSI是理论上的模型，TCP/IP是实际上在用的TCP/IP四层模型应用层传输层网络层数据链路层IP按照这个划分，属于网络层,TCP属于传输层搬运一下百度百科  当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，TCP则把数据流分">
+<meta name="twitter:title" content="打工套路--提前暴露问题">
+<meta name="twitter:description" content="简述每个领域都有一套行事哲学，也被叫做套路，在软件领域，这个词有另外一个说法，叫做设计模式 套路是在大量实践中被印证出的，有效且普适的行事模板。 也工作了一段时间了，耳濡目染加上平日的思考，多少也会总结出一些套路，于是决定分享出来，互相印证启发。 越晚发现问题，越难补救这里不对标题的正确性作争辩或讨论，谨作为无需辩驳的”真理”。 代码编写层面上坏的示范1234static void bad(Ser">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/30/TCP-HTTP-HTTPS/"/>
+  <link rel="canonical" href="http://yoursite.com/2021/05/05/minidesign-1/"/>
 
 
 
 
 
-  <title>TCP_HTTP_HTTPS | Tukjax</title>
+  <title>打工套路--提前暴露问题 | Tukjax</title>
   
 
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/TCP-HTTP-HTTPS/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/05/minidesign-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Tukjax">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TCP_HTTP_HTTPS</h1>
+          <h1 class="post-title" itemprop="name headline">打工套路--提前暴露问题</h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T13:56:14+08:00">
-                2018-05-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-05T22:44:23+08:00">
+                2021-05-05
               </time>
             
 
@@ -292,28 +292,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂技/" itemprop="url" rel="index">
-                    <span itemprop="name">杂技</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -342,29 +320,38 @@
       
 
       
-        <p>TCP是传输层的协议<br>OSI参考模型 OSI是ISO制定的 刚好是ISO倒着来的（想到了IEEE 754）<br>应用层<br>表示层<br>会话层<br>传输层<br>网络层<br>数据链路层<br>物理层<br><a href="https://images2015.cnblogs.com/blog/750327/201608/750327-20160822164857776-669486844.gif" target="_blank" rel="noopener">七层模型</a><br>OSI是理论上的模型，TCP/IP是实际上在用的<br>TCP/IP四层模型<br>应用层<br>传输层<br>网络层<br>数据链路层<br>IP按照这个划分，属于网络层,TCP属于传输层<br>搬运一下百度百科</p>
-<blockquote>
-<p>当应用层向TCP层发送用于网间传输的、用8位字节表示的数据流，TCP则把数据流分割成适当长度的报文段，最大传输段大小（MSS）通常受该计算机连接的网络的数据链路层的最大传送单元（MTU）限制。之后TCP把数据包传给IP层，由它来通过网络将包传送给接收端实体的TCP层。</p>
-</blockquote>
-<blockquote>
-<p>TCP为了保证报文传输的可靠，就给每个包一个序号，同时序号也保证了传送到接收端实体的包的按序接收。然后接收端实体对已成功收到的字节发回一个相应的确认(ACK)；如果发送端实体在合理的往返时延(RTT)内未收到确认，那么对应的数据（假设丢失了）将会被重传。</p>
-</blockquote>
-<blockquote>
-<p>在数据正确性与合法性上，TCP用一个校验和函数来检验数据是否有错误，在发送和接收时都要计算校验和；同时可以使用md5认证对数据进行加密。<br>在保证可靠性上，采用超时重传和捎带确认机制。<br>在流量控制上，采用滑动窗口协议，协议中规定，对于窗口内未经确认的分组需要重传。<br>在拥塞控制上，采用广受好评的TCP拥塞控制算法（也称AIMD算法）。<br>TCP的首部格式图右图所示：<a href="https://baike.baidu.com/pic/TCP/33012/0/574e9258d109b3de49101ee8cebf6c81810a4c87?fr=lemma&amp;ct=single#aid=0&amp;pic=574e9258d109b3de49101ee8cebf6c81810a4c87" target="_blank" rel="noopener">tcp首部</a><br>—Source Port是源端口，16位。<br>TCP首部<br>TCP首部<br>—Destination Port是目的端口，16位。<br>—Sequence Number是发送数据包中的第一个字节的序列号，32位。<br>—Acknowledgment Number是确认序列号，32位。<br>—Data Offset是数据偏移，4位，该字段的值是TCP首部（包括选项）长度除以4。 [1]<br>—标志位： 6位，URG表示Urgent Pointer字段有意义：<br>ACK表示Acknowledgment Number字段有意义<br>PSH表示Push功能，RST表示复位TCP连接<br>SYN表示SYN报文（在建立TCP连接的时候使用）<br>FIN表示没有数据需要发送了（在关闭TCP连接的时候使用）<br>Window表示接收缓冲区的空闲空间，16位，用来告诉TCP连接对端自己能够接收的最大数据长度。<br>—Checksum是校验和，16位。<br>—Urgent Pointers是紧急指针，16位，只有URG标志位被设置时该字段才有意义，表示紧急数据相对序列号（Sequence Number字段的值）的偏移。</p>
-</blockquote>
-<p>百度百科已经讲解的很清楚了<br>TCP三次握手</p>
-<blockquote>
-<p><a href="https://baike.baidu.com/pic/TCP/33012/0/bf4875638e06d1590c33faf9?fr=lemma&amp;ct=single#aid=0&amp;pic=a1ad16fa330e9cae59ee90ca" target="_blank" rel="noopener">三次握手</a></p>
-<ol>
-<li>客户端发送SYN（SEQ=x）报文给服务器端，进入SYN_SEND状态。</li>
-<li>服务器端收到SYN报文，回应一个SYN （SEQ=y）ACK(ACK=x+1）报文，进入SYN_RECV状态。</li>
-<li>客户端收到服务器端的SYN报文，回应一个ACK(ACK=y+1）报文，进入Established状态。</li>
+        <h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>每个领域都有一套行事哲学，也被叫做套路，在软件领域，这个词有另外一个说法，叫做<em>设计模式</em></p>
+<p>套路是在大量实践中被印证出的，有效且普适的行事模板。</p>
+<p>也工作了一段时间了，耳濡目染加上平日的思考，多少也会总结出一些套路，于是决定分享出来，互相印证启发。</p>
+<h3 id="越晚发现问题，越难补救"><a href="#越晚发现问题，越难补救" class="headerlink" title="越晚发现问题，越难补救"></a>越晚发现问题，越难补救</h3><p>这里不对标题的正确性作争辩或讨论，谨作为无需辩驳的”真理”。</p>
+<h4 id="代码编写层面上"><a href="#代码编写层面上" class="headerlink" title="代码编写层面上"></a>代码编写层面上</h4><h5 id="坏的示范"><a href="#坏的示范" class="headerlink" title="坏的示范"></a>坏的示范</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bad</span><span class="params">(ServiceObject so)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">     Integer a = so.getTrip();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很明显,这里有可能会出现空指针的问题</p>
+<h5 id="好的做法1"><a href="#好的做法1" class="headerlink" title="好的做法1"></a>好的做法1</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">good</span><span class="params">(ServiceObject so)</span></span>&#123;</span><br><span class="line">    Objects.requireNonNull(so.getTrip())</span><br><span class="line">    Integer a = so.getTrip();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用Objects.requireNonNull校验参数是否为空</p>
+<h5 id="好的做法2"><a href="#好的做法2" class="headerlink" title="好的做法2"></a>好的做法2</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">good</span><span class="params">(@NonNull ServiceObject so)</span></span>&#123;</span><br><span class="line">    Integer a = so.getTrip();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在方法签名上注明入参不能为空</p>
+<h5 id="为什么这样更好"><a href="#为什么这样更好" class="headerlink" title="为什么这样更好?"></a>为什么这样更好?</h5><ol>
+<li><p>方便排错</p>
+<p>生产上使用的大多是jdk8,jdk8的报错堆栈无法给出空指针对应的列信息.</p>
+<p>作为示例的代码较为简单,即使出了问题也能很快看到空指针的来源</p>
+<p>但实际作为生产的代码大概率比这更复杂,一行内的逻辑判断会更多(这样写当然不好,但这里不讨论)</p>
+<p>当一行内有多个地方会产生空指针时,仅靠报错堆栈难以定位问题.</p>
+<p>通过显式去校验,能够快速定位到问题</p>
+</li>
+<li><p>减少冗余代码</p>
+<p>通过调用方的自觉去减少代码量,但这种方式只适合较初期的库.扇入已然太多的情况下,这样并不能使得情况变得更好</p>
+</li>
 </ol>
-</blockquote>
-<p>连接中止需要四次握手</p>
-<blockquote>
-<p>[tcp连接终止]（<a href="https://baike.baidu.com/pic/TCP/33012/0/bf4875638e06d1590c33faf9?fr=lemma&amp;ct=single#aid=0&amp;pic=bf4875638e06d1590c33faf9）" target="_blank" rel="noopener">https://baike.baidu.com/pic/TCP/33012/0/bf4875638e06d1590c33faf9?fr=lemma&amp;ct=single#aid=0&amp;pic=bf4875638e06d1590c33faf9）</a><br>(1) 某个应用进程首先调用close，称该端执行“主动关闭”（active close）。该端的TCP于是发送一个FIN分节，表示数据发送完毕。<br>(2) 接收到这个FIN的对端执行 “被动关闭”（passive close），这个FIN由TCP确认。<br>注意：FIN的接收也作为一个文件结束符（end-of-file）传递给接收端应用进程，放在已排队等候该应用进程接收的任何其他数据之后，因为，FIN的接收意味着接收端应用进程在相应连接上再无额外数据可接收。<br>(3) 一段时间后，接收到这个文件结束符的应用进程将调用close关闭它的套接字。这导致它的TCP也发送一个FIN。<br>(4) 接收这个最终FIN的原发送端TCP（即执行主动关闭的那一端）确认这个FIN。</p>
-</blockquote>
+<h5 id="大家都是这么做的吗"><a href="#大家都是这么做的吗" class="headerlink" title="大家都是这么做的吗?"></a>大家都是这么做的吗?</h5><p>这种思路就是fail-fast机制,举几个例子就很容易理解</p>
+<p>例如微服务之间的调用,当下游服务出现压力,就可以直接熔断掉,避免集群的崩溃,降低影响面</p>
+<p>比如分布式事务中,批量sql执行,只要任何一个事务失败,将未进行的sql也取消掉</p>
+<p>再比如大家常见的,jdk8 stream引入的anyOf api,只要有满足条件的匹配,其余的都可以忽略掉</p>
+<h4 id="项目管理层面上"><a href="#项目管理层面上" class="headerlink" title="项目管理层面上"></a>项目管理层面上</h4><ol>
+<li>任何交付过程中,只要出现了延期风险,并且自己确实难以应对时,都应及时抛出给干系人. </li>
+<li>及时沟通,及时汇报</li>
+</ol>
+<p>进行一些非决策性的工作的话,这样也就够了.</p>
+<h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>必须收个尾,不写总结不舒服  : &gt;</p>
 
       
     </div>
@@ -382,7 +369,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/网络/" rel="tag"># 网络</a>
+            <a href="/tags/打工/" rel="tag"># 打工</a>
           
         </div>
       
@@ -395,8 +382,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/30/python的selenium/" rel="next" title="python的selenium">
-                <i class="fa fa-chevron-left"></i> python的selenium
+              <a href="/2021/04/24/leetcode-cn-2/" rel="next" title="leetcode-cn-2">
+                <i class="fa fa-chevron-left"></i> leetcode-cn-2
               </a>
             
           </div>
@@ -404,10 +391,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/30/lin文件系统/" rel="prev" title="linux文件系统">
-                linux文件系统 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,8 +442,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -520,6 +512,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#越晚发现问题，越难补救"><span class="nav-number"></span> <span class="nav-text">越晚发现问题，越难补救</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码编写层面上"><span class="nav-number">1.</span> <span class="nav-text">代码编写层面上</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#坏的示范"><span class="nav-number">1.1.</span> <span class="nav-text">坏的示范</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好的做法1"><span class="nav-number">1.2.</span> <span class="nav-text">好的做法1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好的做法2"><span class="nav-number">1.3.</span> <span class="nav-text">好的做法2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么这样更好"><span class="nav-number">1.4.</span> <span class="nav-text">为什么这样更好?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#大家都是这么做的吗"><span class="nav-number">1.5.</span> <span class="nav-text">大家都是这么做的吗?</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目管理层面上"><span class="nav-number">2.</span> <span class="nav-text">项目管理层面上</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
