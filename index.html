@@ -249,157 +249,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/05/minidesign-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Tukjax">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Tukjax">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2021/05/05/minidesign-1/" itemprop="url">打工套路--提前暴露问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-05-05T22:44:23+08:00">
-                2021-05-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><p>每个领域都有一套行事哲学，也被叫做套路，在软件领域，这个词有另外一个说法，叫做<em>设计模式</em></p>
-<p>套路是在大量实践中被印证出的，有效且普适的行事模板。</p>
-<p>也工作了一段时间了，耳濡目染加上平日的思考，多少也会总结出一些套路，于是决定分享出来，互相印证启发。</p>
-<h3 id="越晚发现问题，越难补救"><a href="#越晚发现问题，越难补救" class="headerlink" title="越晚发现问题，越难补救"></a>越晚发现问题，越难补救</h3><p>这里不对标题的正确性作争辩或讨论，谨作为无需辩驳的”真理”。</p>
-<h4 id="代码编写层面上"><a href="#代码编写层面上" class="headerlink" title="代码编写层面上"></a>代码编写层面上</h4><h5 id="坏的示范"><a href="#坏的示范" class="headerlink" title="坏的示范"></a>坏的示范</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bad</span><span class="params">(ServiceObject so)</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">     Integer a = so.getTrip();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>很明显,这里有可能会出现空指针的问题</p>
-<h5 id="好的做法1"><a href="#好的做法1" class="headerlink" title="好的做法1"></a>好的做法1</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">good</span><span class="params">(ServiceObject so)</span></span>&#123;</span><br><span class="line">    Objects.requireNonNull(so.getTrip())</span><br><span class="line">    Integer a = so.getTrip();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用Objects.requireNonNull校验参数是否为空</p>
-<h5 id="好的做法2"><a href="#好的做法2" class="headerlink" title="好的做法2"></a>好的做法2</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">good</span><span class="params">(@NonNull ServiceObject so)</span></span>&#123;</span><br><span class="line">    Integer a = so.getTrip();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在方法签名上注明入参不能为空</p>
-<h5 id="为什么这样更好"><a href="#为什么这样更好" class="headerlink" title="为什么这样更好?"></a>为什么这样更好?</h5><ol>
-<li><p>方便排错</p>
-<p>生产上使用的大多是jdk8,jdk8的报错堆栈无法给出空指针对应的列信息.</p>
-<p>作为示例的代码较为简单,即使出了问题也能很快看到空指针的来源</p>
-<p>但实际作为生产的代码大概率比这更复杂,一行内的逻辑判断会更多(这样写当然不好,但这里不讨论)</p>
-<p>当一行内有多个地方会产生空指针时,仅靠报错堆栈难以定位问题.</p>
-<p>通过显式去校验,能够快速定位到问题</p>
-</li>
-<li><p>减少冗余代码</p>
-<p>通过调用方的自觉去减少代码量,但这种方式只适合较初期的库.扇入已然太多的情况下,这样并不能使得情况变得更好</p>
-</li>
-</ol>
-<h5 id="大家都是这么做的吗"><a href="#大家都是这么做的吗" class="headerlink" title="大家都是这么做的吗?"></a>大家都是这么做的吗?</h5><p>这种思路就是fail-fast机制,举几个例子就很容易理解</p>
-<p>例如微服务之间的调用,当下游服务出现压力,就可以直接熔断掉,避免集群的崩溃,降低影响面</p>
-<p>比如分布式事务中,批量sql执行,只要任何一个事务失败,将未进行的sql也取消掉</p>
-<p>再比如大家常见的,jdk8 stream引入的anyOf api,只要有满足条件的匹配,其余的都可以忽略掉</p>
-<h4 id="项目管理层面上"><a href="#项目管理层面上" class="headerlink" title="项目管理层面上"></a>项目管理层面上</h4><ol>
-<li>任何交付过程中,只要出现了延期风险,并且自己确实难以应对时,都应及时抛出给干系人. </li>
-<li>及时沟通,及时汇报</li>
-</ol>
-<p>进行一些非决策性的工作的话,这样也就够了.</p>
-<h4 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h4><p>必须收个尾,不写总结不舒服  : &gt;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/24/leetcode-cn-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1669,6 +1518,155 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/linux软连接与硬链接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Tukjax">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tukjax">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/30/linux软连接与硬链接/" itemprop="url">linux软链接与硬链接</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-30T13:54:55+08:00">
+                2018-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂技/" itemprop="url" rel="index">
+                    <span itemprop="name">杂技</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>刚才用了用WIN10的BASH，挺好用的<br>顺便再把LINUX的硬链接与软链接复习一下</p>
+<h3 id="硬链接-hardlink"><a href="#硬链接-hardlink" class="headerlink" title="硬链接 hardlink"></a>硬链接 hardlink</h3><p>ln source  target<br>其实就是inode号相同，文件名不同，只能对存在的文件创建硬链接<br>不能对文件夹创建硬链接，linux的目录都隐藏了两个目录，一个是. 一个是.. 这两个都是硬链接 一个point to父目录inode 一个point to 当前目录inode<br>任何一个目录的inode中的硬链接总数 总等于2 + 子目录总数 2是父目录对其的硬链接和当前目录的.的硬链接</p>
+<p>我对inode中的links总数理解就是，它相当于树中的结点连接的边数，当他等于零的时候就表示这个东西已经找不到了，可以删了<br>当INODE等于0的时候，表明这个文件的INODE，没有东西指向它，它也不指向别的地方，就可以原地去世了。<br>我在LINUX上做了个实验<br>touch 1.test<br>touch 2.test</p>
+<p>ln 1.test  3</p>
+<p>stat 3<br>stat 1.test<br>stat 2.test</p>
+<p>结果如我想的一样，1.test的inode硬链接数有 1.test和3 结果为2<br>2.test  硬链接数为 1<br>3和1.test是一样的 指向同一个inode</p>
+<p>假设可以给目录文件创建硬链接,A文件夹下有B文件夹，B文件夹下有C文件，而C文件是A的硬链接，这就导致LINUX遍历目录的时候循环了<br>LINUX文件系统是树，树不能有循环引用<br>are those real reason?我觉得不是，这一点留给以后的自己填。</p>
+<h2 id="软连接-softlink"><a href="#软连接-softlink" class="headerlink" title="软连接 softlink"></a>软连接 softlink</h2><p>ln -s source  target<br>就是WIN的快捷方式。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1719,7 +1717,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1741,7 +1739,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
