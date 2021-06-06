@@ -602,9 +602,8 @@
       
         
           
-            <p>突然想玩玩rust，不多说，搞起</p>
-<h2 id="开始-安装rustup"><a href="#开始-安装rustup" class="headerlink" title="开始: 安装rustup"></a>开始: 安装rustup</h2><p>rustup是命令行工具，作为java boy，可以简单把他理解为maven+JRE。或者python boy类比他为anacoda</p>
-<p>我们通过rustup去rust环境</p>
+            <h2 id="开始-安装rustup"><a href="#开始-安装rustup" class="headerlink" title="开始: 安装rustup"></a>开始: 安装rustup</h2><p>rustup是命令行工具，可以不严谨地类比于java jdk update checker</p>
+<p>我们通过rustup去安装rust环境</p>
 <p>通过此界面下载rustup: <a href="https://www.rust-lang.org/learn/get-started" target="_blank" rel="noopener">https://www.rust-lang.org/learn/get-started</a></p>
 <p>下载完毕就安装，默认设置即可。需要下载近百兆的文件，网络不好的朋友先泡杯茶吧</p>
 <p>安装完后就是回车，注意rustup默认地址在这</p>
@@ -615,20 +614,14 @@
 <h2 id="使用rustc运行第一条命令"><a href="#使用rustc运行第一条命令" class="headerlink" title="使用rustc运行第一条命令"></a>使用rustc运行第一条命令</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rustc --version</span><br></pre></td></tr></table></figure>
 <p>检测rust的版本</p>
 <p>注意这里也是要设置Path才能找到rustc的噢</p>
-<h2 id="安装rustIDE"><a href="#安装rustIDE" class="headerlink" title="安装rustIDE"></a>安装rustIDE</h2><p>不整有的没的，直接进行一个IDEA的打开，然后安装rust插件,File–&gt;New Project–&gt;Rust新建第一个rust项目(记得新建之前安装std库)</p>
+<h2 id="安装rustIDE"><a href="#安装rustIDE" class="headerlink" title="安装rustIDE"></a>安装rustIDE</h2><p>为了方便,直接使用idea的rust插件(自行在IDEA PLUGIN MARKETPLACE 搜索RUST，第一个就是),File–&gt;New Project–&gt;Rust新建第一个rust项目(记得新建之前安装std库)</p>
 <h2 id="第一行rust代码"><a href="#第一行rust代码" class="headerlink" title="第一行rust代码"></a>第一行rust代码</h2><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">"你好,rust,但也不好"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中println是std库给的</p>
-<h2 id="工程化的基石-Cargo"><a href="#工程化的基石-Cargo" class="headerlink" title="工程化的基石-Cargo"></a>工程化的基石-Cargo</h2><p>rust有一点很令人惊喜(也许只是对我惊喜,因为被打脸来的太快。我在此正式宣布:我收回上面对rustup的类比，请把rustup理解为一个rust的更新程序，类比于任何软件的update checker)，有一个官方的依赖管理与项目构建工具，叫做Cargo。并且直接在官方文档中介绍了Cargo。</p>
-<p>英语不好的兄弟别挣扎了，贴心的我已经替你们查过了，Cargo这个词的意思是 货物，属于是n.名词。</p>
-<p>英文好的朋友可以看下面的官方介绍挣扎一下</p>
+<h2 id="工程化的基石-Cargo"><a href="#工程化的基石-Cargo" class="headerlink" title="工程化的基石-Cargo"></a>工程化的基石-Cargo</h2><p>rust有一点很令人惊喜:有一个官方的依赖管理与项目构建工具，叫做Cargo。并且直接在官方文档中介绍了Cargo。</p>
+<p>下面是官方文档</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cargo is Rust’s build system and package manager. Most Rustaceans use this tool to manage their Rust projects because Cargo handles a lot of tasks for you, such as building your code, downloading the libraries your code depends on, and building those libraries. (We call libraries your code needs dependencies.)</span><br></pre></td></tr></table></figure>
 <p>在前面的过程中,cargo已经安装到了机器上,用这个命令check</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cargo --version</span><br><span class="line">cargo 1.51.0 (43b129a20 2021-03-16)</span><br></pre></td></tr></table></figure>
-<p>我对Cargo的期望是很高的，希望这个工具能有gradle之于maven，maven之于java的高度</p>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>介绍了windows下安装rush的方法，并且在windows下使用idea运行了一个最简单的rust项目。</p>
-<p>最后敷衍地介绍了几句Rust的官方项目构建与包管理工具–Cargo，并且对Cargo提出了一个个人层面上的，极高的期望。令人暖心。</p>
-<p>本文是作者(网名tukjax,总之你大概眼熟一下就行了)关于rust的第一篇文章，希望不是最后一篇。嘻。</p>
-<h2 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h2><p>本文大部分内容来自于:</p>
+<h2 id="declare"><a href="#declare" class="headerlink" title="declare"></a>declare</h2><p>本文大部分内容来自于:</p>
 <p>1.<a href="https://www.rust-lang.org/learn/get-started" target="_blank" rel="noopener">https://www.rust-lang.org/learn/get-started</a></p>
 <p>2.<a href="https://doc.rust-lang.org/stable/book/ch01-01-installation.html" target="_blank" rel="noopener">https://doc.rust-lang.org/stable/book/ch01-01-installation.html</a></p>
 
